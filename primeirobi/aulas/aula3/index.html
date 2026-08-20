@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- Exemplo css interno -->
+<style>
+#interno{
+    height: 100px;
+    width: 400px;
+    background-color: mediumvioletred;
+    color: chocolate;
+}
+</style>
+<body>
+
+    <main>
+        <!-- Exemplo css inline -->
+        <section style="height: 100px; width: 400px; background-color: green;">
+            <h1 style="color: blueviolet;">CSS Inline</h1>
+        </section>
+        <section id="interno">
+            <h1>Exemplo css interno</h1>
+        </section>
+        <section id="externo">
+            <h1>Exemplo css externo</h1>
+
+            <div>
+            <h1>Exemplo de css externo 2</h1>
+            <span>
+                <h1>Exemplo css externo 3</h1>
+            </span>
+            <h1>Exemplo 4</h1>
+            <p>Exemploooo1</p>
+            <span>
+                <p>Exemploooo2</p>
+            </span>
+            
+        </div>
+
+        <button class="btn">
+            Butão
+        </button>
+
+        </section>
+
+    </main>
+        
+</body>
+
+
+
+<!---------------------------------------------------------------------------------------------->
+<!--<button onclick="iniciarPisca()">Enviar</button>-->
+
+    <script>
+        function gerarCorAleatoria() {
+            const letras = '0123456789ABCDEF';
+            let cor = '#';
+            for (let i = 0; i < 6; i++) {
+                cor += letras[Math.floor(Math.random() * 16)];
+            }
+            return cor;
+        }
+
+        function iniciarPisca() {
+
+            setInterval(function() {
+
+                
+                const elementos = document.querySelectorAll(
+                    "h3, h1, label, input, textarea, select, option, fieldset, legend, button"
+                );
+
+                
+                elementos.forEach(function(elemento) {
+
+                    
+                    const cor = gerarCorAleatoria();
+
+                    
+                    elemento.style.color = cor;
+
+                    
+                    elemento.style.borderColor = cor;
+                });
+
+            }, 100);
+        }
+    </script>
+<!---------------------------------------------------------------------------------------------->

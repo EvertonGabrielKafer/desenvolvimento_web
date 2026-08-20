@@ -1,0 +1,41 @@
+#externo {
+    height: 100px;
+    width: 400px;
+    background-color:rgb(205, 133, 63);
+    color:cyan;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    background-color: blueviolet;
+}
+
+div > h1{
+    color: rgb(241, 249, 10);
+}
+
+span + h1{
+    color: crimson;
+}
+
+h1 ~ p{
+    color: chartreuse;
+}
+
+.btn{
+    /* padding: 12px; */
+    background-color: goldenrod;
+    border-radius: 500px;
+    width: 100px;
+    height: 100px;
+    border-color: gold;
+}
+
+.btn:hover {
+    background-color:darkgoldenrod;
+    cursor:help;
+}
