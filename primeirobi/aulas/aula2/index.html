@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula2</title>
+</head>
+<body>
+    <fieldset>
+    <legend>Cadrasto</legend>
+    <h3>Se cadrastreia aí</h3>
+    <form action="/url-api-back-end" method="post">
+
+        <label for="nome">Informe o seu nome</label>
+        <input type="text" id="name" name="name" 
+            pattern="[A-Za-z]+"
+            placeholder="Nome" required maxlength="10">
+        
+        <br>
+        <label for="nome">Informe o seu email</label>
+        <input type="email" id="email" name="email" placeholder="Email" required>
+
+        <br>
+        <label for="nome">Informe o seu senha</label>
+        <input type="password" id="senha" name="senha" placeholder="Senha" required>
+
+        <br>
+        <label for="nome">Informe o seu biografis</label>
+        <textarea name="bio" id="bip" placeholder="Texto" rows="6" cols="26"
+            style="resize: none;"></textarea>
+        
+        <br>
+        <label for="nome">Selecione o time</label>
+        <select name="melhor-time" id="time">
+            <option value="Inter">Inter</option>
+            <option value="Inter">Gremio</option>
+            <option value="Inter">Inter</option>
+            <option value="Inter">Inter</option>
+            <option value="Inter">Inter</option>
+        </select>
+        
+        <br>
+        <input onclick="iniciarPisca()" value="Enviar">
+         
+
+
+    </form>
+    </fieldset>
+        <div style="position: fixed; width: 100vw; height: 100vh; top: 0; left: 0; z-index: -1; overflow: hidden;">
+            <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="prismobama.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+</body>
+
+<!---------------------------------------------------------------------------------------------->
+<!--<button onclick="iniciarPisca()">Enviar</button>-->
+
+    <script>
+        // Função para gerar uma cor hexadecimal aleatória (ex: #FFA102)
+        function gerarCorAleatoria() {
+            const letras = '0123456789ABCDEF';
+            let cor = '#';
+            for (let i = 0; i < 6; i++) {
+                cor += letras[Math.floor(Math.random() * 16)];
+            }
+            return cor;
+        }
+
+        function iniciarPisca() {
+
+            setInterval(function() {
+
+                // Seleciona vários elementos da página
+                const elementos = document.querySelectorAll(
+                    "h3, label, input, textarea, select, option, fieldset, legend, button"
+                );
+
+                // Percorre todos os elementos encontrados
+                elementos.forEach(function(elemento) {
+
+                    // Gera uma cor aleatória
+                    const cor = gerarCorAleatoria();
+
+                    // Altera a cor do texto
+                    elemento.style.color = cor;
+
+                    // Altera a cor da borda
+                    elemento.style.borderColor = cor;
+                });
+
+            }, 200);
+        }
+    </script>
+<!---------------------------------------------------------------------------------------------->
+</html>

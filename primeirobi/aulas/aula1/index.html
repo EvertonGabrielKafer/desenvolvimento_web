@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula1</title>
+</head>
+
+<body style="background-color: rgb(238, 255, 108);">
+    <main>
+        <img width="300" height="200" src="imagens/jeripoca_trabuco.png">
+    </main>
+
+    <header>
+        <nav>
+            <a href="">Home</a>
+            <a href="">Sobre</a>
+            <a href="">Contato</a>
+        </nav> 
+    </header>
+
+    <aside>
+        <h4>Ultimas Noticias</h4>
+        <ul>
+            <li>Evento de recepção dos calouros</li>
+            <li>Festa junina</li>
+            <li>Feitra de profissões</li>
+        </ul>
+    </aside>
+
+    <main>
+        <h1>Blog da unipar</h1>
+        <section>
+            <h2>Notícias</h2>
+            <article>
+                <h3>Recepção de calouros</h3>
+                <figure>
+                    <img width="600" height="400" src="imagens/fpampapixil.png" alt="CHT 1.6">
+                    <figcaption>Pamapa 8bit</figcaption>
+                </figure>
+                <p>Para desmontar o cárter do Chevette, esvazie o óleo do motor, remova o protetor de metal inferior e solte os
+                    parafusos de fixação. Como o espaço é apertado devido à tração traseira e à suspensão, geralmente é preciso
+                    afrouxar ou baixar um pouco o agregado da suspensão ou os coxins do motor para conseguir retirar a peça</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>Aperte os parafusos em padrão cruzado respeitando o torque recomendado para prevenir vazamentos</p>
+    </footer>
+
+
+<!---------------------------------------------------------------------------------------------->
+    <div vw="" class="enabled" style="left: initial; right: 0px; top: 50%; bottom: initial; transform: translateY(calc(-50% - 10px));">
+        <div vw-access-button="" class="active"><img class="vp-access-button" data-src="assets/access_icon.svg?v=20260510" alt="Conteúdo acessível em Libras usando o VLibras Widget com opções dos Avatares Ícaro, Hosana ou Guga." src="https://vlibras.gov.br/app//assets/access_icon.svg?v=20260510">
+            <img class="vp-pop-up" data-src="assets/access_popup.jpg?v=20260510" alt="Conteúdo acessível em Libras usando o VLibras Widget com opções dos Avatares Ícaro, Hosana ou Guga." src="https://vlibras.gov.br/app//assets/access_popup.jpg?v=20260510">
+        </div>
+        <div vw-plugin-wrapper=""><div vp="">
+        <div vp-box=""></div>
+        <div vp-message-box=""></div>
+        <div vp-settings=""></div>
+        <div vp-dictionary=""></div>
+        <div vp-settings-btn=""></div>
+        <div vp-info-screen=""></div>
+        <div vp-suggestion-screen=""></div>
+        <div vp-translator-screen=""></div>
+        <div vp-more-options-screen=""></div>
+        <div vp-emotions-tooltip=""></div>
+        <div vp-main-guide-screen=""></div>
+        <div vp-suggestion-button=""></div>
+        <div vp-rate-box=""></div>
+        <div vp-change-avatar=""></div>
+        <div vp-aux-controls=""></div>
+        <div vp-controls=""></div>
+        <span vp-click-blocker=""></span>
+    </div>
+    
+
+    <script>
+        window.onbeforeunload = null;
+    </script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app', 'https://vlibras.gov.br/config/default_logo.json');
+    </script>
+    <script>
+        window.addEventListener('troca-contraste', function() {            
+            if ($("body").hasClass("contraste")) {
+                setCookie("contraste", "");
+                $("body").removeClass("contraste");
+                $("barra-govbr").attr('contrastActive', 'false');
+            } else {
+                setCookie("contraste", "on");
+                $("body").addClass("contraste");
+                $("barra-govbr").attr('contrastActive', 'true');
+            }
+            return false;
+        });
+        window.addEventListener('abrir-cookie-config', function() {
+            _redefinirCookies(); return false;
+        });
+        window.addEventListener('ACCESSTOKEN_ERROR', function() {
+            window.location.href = "/govbrportal/logout.html";
+        });
+    </script>
+<!---------------------------------------------------------------------------------------------->
+
+</body>
+
+</html>

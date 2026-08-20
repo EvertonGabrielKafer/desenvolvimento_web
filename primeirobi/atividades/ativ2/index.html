@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ativ2</title>
+</head>
+<body>
+
+    <h1>Página de cadastro</h1>
+
+    <fieldset>
+    
+    <legend>Crie sua conta</legend>
+    
+    <form action="/url-api-back-end" method="post">
+
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="name" name="name" 
+            pattern="[A-Za-z]+" required maxlength="10">
+        
+        <br><br>
+        <label for="nome">E-mail:</label><br>
+        <input type="email" id="email" name="email" placeholder="seuemail@dominio.com" required>
+
+        <br><br>
+        <label for="nome">Senha (mínimo 8 caracteres):</label><br>
+        <input type="password" id="senha" name="senha" minlength="8" required>
+        
+        
+        <br><br>
+        <label for="nome">Gênero:</label><br>
+        <input type="radio" id="feminino" name="genero" value="feminino">
+        <label for="feminino">Feminino</label><br>
+
+        <input type="radio" id="masculino" name="genero" value="masculino">
+        <label for="masculino">Masculino</label><br>
+
+        <input type="radio" id="outro" name="genero" value="outro" onclick="iniciarPisca()">
+        <label for="outro">Outro</label>
+
+
+        <br><br>
+        <label for="nome">Biografia: </label><br>
+        <textarea name="bio" id="bip" placeholder="Fale um pouco sobre você..." 
+        rows="6" cols="26"></textarea>
+         
+        <br><br>
+        <input type="checkbox" id="termos" name="termos"/>
+        <label for="termos">Eu li e aceito os termos de serviço.</label>
+    </form>
+
+    </fieldset>
+
+    <br>
+    <input type="submit" value="Enviar">
+    <input type="reset" value="Limpar">
+
+        <div style="position: fixed; width: 100vw; height: 100vh; top: 0; left: 0; z-index: -1; overflow: hidden;">
+            <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="prismobama.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+</body>
+
+
+
+<!---------------------------------------------------------------------------------------------->
+<!--<button onclick="iniciarPisca()">Enviar</button>-->
+
+    <script>
+        function gerarCorAleatoria() {
+            const letras = '0123456789ABCDEF';
+            let cor = '#';
+            for (let i = 0; i < 6; i++) {
+                cor += letras[Math.floor(Math.random() * 16)];
+            }
+            return cor;
+        }
+
+        function iniciarPisca() {
+
+            setInterval(function() {
+
+                
+                const elementos = document.querySelectorAll(
+                    "h3, h1, label, input, textarea, select, option, fieldset, legend, button"
+                );
+
+                
+                elementos.forEach(function(elemento) {
+
+                    
+                    const cor = gerarCorAleatoria();
+
+                    
+                    elemento.style.color = cor;
+
+                    
+                    elemento.style.borderColor = cor;
+                });
+
+            }, 100);
+        }
+    </script>
+<!---------------------------------------------------------------------------------------------->
