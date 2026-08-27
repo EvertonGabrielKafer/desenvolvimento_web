@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="body">
+
+    <main id="container">
+        <h1>Position</h1>
+        <div class="relativo">
+            <h2>relative</h2>
+        </div>
+
+        <div class="absoluto">
+            <h2>absoluto</h2>
+        </div>
+
+        <div class="fixo">
+            <h2>fixo</h2>
+        </div>
+        
+
+    </main>
+        
+</body>
+
+
+
+<!---------------------------------------------------------------------------------------------->
+<!--<button onclick="iniciarPisca()">Enviar</button>-->
+
+    <script>
+        function gerarCorAleatoria() {
+            const letras = '0123456789ABCDEF';
+            let cor = '#';
+            for (let i = 0; i < 6; i++) {
+                cor += letras[Math.floor(Math.random() * 16)];
+            }
+            return cor;
+        }
+
+        function iniciarPisca() {
+
+            setInterval(function() {
+
+                
+                const elementos = document.querySelectorAll(
+                    "h3, h1, label, input, textarea, select, option, fieldset, legend, button"
+                );
+
+                
+                elementos.forEach(function(elemento) {
+
+                    
+                    const cor = gerarCorAleatoria();
+
+                    
+                    elemento.style.color = cor;
+
+                    
+                    elemento.style.borderColor = cor;
+                });
+
+            }, 100);
+        }
+    </script>
+<!---------------------------------------------------------------------------------------------->
