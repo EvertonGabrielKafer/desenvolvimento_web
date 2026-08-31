@@ -41,3 +41,20 @@
     border-style: groove;
     margin-top: 2px;
 }
+
+.inline{
+    background-color: aquamarine;
+    width: 200px;
+    height: 200px;
+}
+
+.inline-block{
+    background-color: antiquewhite;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+}
+
+.texto > h1{
+    
+}
