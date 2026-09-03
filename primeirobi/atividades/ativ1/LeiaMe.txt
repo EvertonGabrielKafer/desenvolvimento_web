@@ -1,0 +1,18 @@
++--------------------------------+
+|                                |
+| Aluno: Everton Gabriel Käfer   |
+| RA: 60008892                   |
+| Curso: ADS - 4° Período        |
+|                                |
++--------------------------------+
+
+Criação do trabalho:
+Inicialmente eu desenvolvi a parte do HTML da página,
+então, devido à falta de ideias sobre o design, pedi para 
+a IA do Figma gerar ele, onde dalí veio a ideia de criar
+a págia como se fosse uma página de jornal, onde eu
+recriei 100% à mão o design e adaptei algumas partes.
+
+Sobre a responsividade, ela não foi complicada de desenvolver,
+isso até eum perceber que dependendo o navegador aparecia uma 
+margem a mais na direita, mas no geral está funcional.
