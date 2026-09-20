@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ativ3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="caderno">
+
+        <div class="tarefas">
+            <h1>Lista de afazeres</h1>
+
+            <ul class="container"></ul>
+        </div>
+
+        <div class="formulario">
+            <h2>Nova tarefa</h2>
+
+            <form onsubmit="adicionar(event)">
+
+                <label for="tarefa">Informe a tarefa</label>
+                <input type="text" name="tarefa" id="tarefa">
+
+                <label for="prazo">Informe o prazo</label>
+                <input type="date" name="prazo" id="prazo">
+
+                <button type="submit">Adicionar</button>
+
+            </form>
+        </div>
+
+    </section>
+
+</body>
+<script src="./script.js"></script>
+</html>
