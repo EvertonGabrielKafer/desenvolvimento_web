@@ -15,8 +15,10 @@ function adicionar(evento){
     const tarefa = evento.target[0].value;
     const prazo = dataFormatada;
 
+    
     const li = document.createElement("li");
     li.textContent = tarefa + " - " + prazo;
+
 
     li.addEventListener('click', () => remover(li))
 
