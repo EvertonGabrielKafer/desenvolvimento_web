@@ -1,13 +1,16 @@
 interface ICarosselProps {
     src: string;
-    src2: string;
-    src3: string;
+    star1: string;
+    star2: string;
+    star3: string;
+    star4: string;
+    star5: string;
     p1: string;
     p2: string;
     p3: string;
 }
 
-export default function Card({ src, src2, src3, p1, p2, p3 }: ICarosselProps) {
+export default function Card({ src, star1, star2, star3, star4, star5, p1, p2, p3 }: ICarosselProps) {
     return (
         <div className="carousel-card">
             <img src={src} alt="Imagem perfil cliente" />
@@ -17,11 +20,11 @@ export default function Card({ src, src2, src3, p1, p2, p3 }: ICarosselProps) {
                 </p>
             </span>
             <span className="rating">
-                <img src={src2} alt="ícone estrela" width={22} height={20} />
-                <img src={src2} alt="ícone estrela" width={22} height={20} />
-                <img src={src2} alt="ícone estrela" width={22} height={20} />
-                <img src={src2} alt="ícone estrela" width={22} height={20} />
-                <img src={src3} alt="ícone estrela" width={20} height={22} />
+                <img src={star1} alt="ícone estrela" width={22} height={20} />
+                <img src={star2} alt="ícone estrela" width={22} height={20} />
+                <img src={star3} alt="ícone estrela" width={22} height={20} />
+                <img src={star4} alt="ícone estrela" width={22} height={20} />
+                <img src={star5} alt="ícone estrela" width={20} height={22} />
             </span>
             <span className="names">
                 <p>{p2}</p>

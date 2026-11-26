@@ -1,5 +1,10 @@
-import "./styles/utility.css"
-import "./styles/header.css"
+import "./styles/utility.css";
+import "./styles/header.css";
+import "./styles/hero.css";
+import "./styles/solution.css";
+import "./styles/testimonials.css";
+import "./styles/form.css";
+import "./styles/footer.css";
 import Logo from "./assets/icons/logo.svg"
 import Close from "./assets/icons/close.svg"
 import Bom from "./assets/icons/carBom.svg"
@@ -8,6 +13,10 @@ import Documento from "./assets/icons/carDocumento.svg"
 import Star from "./assets/icons/star.svg"
 import StarOut from "./assets/icons/star_out.svg"
 import Menu from "./assets/icons/menu.svg"
+import Check from "./assets/icons/check.svg"
+import instagram from "./assets/icons/instagram 1.svg"
+import facebook from "./assets/icons/facebook 1.svg"
+import youtube from "./assets/icons/youtube 1.svg"
 import { useEffect, useState } from "react"
 import Button from "./components/Button"
 import Card from "./components/Card.tsx"
@@ -19,10 +28,6 @@ import ProfileImageOne from "./assets/images/ProfileImageOne.png";
 import ProfileImageTwo from "./assets/images/ProfileImageTwo.png";
 import ProfileImageThree from "./assets/images/ProfileImageThree.png";
 
-import "./styles/hero.css";
-import "./styles/solution.css";
-import "./styles/testimonials.css";
-
 export default function Hone() {
     const [showMobileMenu, setShowMobileMenu] = useState(false);
 
@@ -32,6 +37,33 @@ export default function Hone() {
             html.style.overflow = showMobileMenu ? "hidden" : "auto";
         }
     }, [showMobileMenu]);
+
+    async function sendContactEmail(event: React.FormEvent<HTMLFormElement>) {
+
+        event.preventDefault();
+
+        const formData = new FormData(event.currentTarget);
+
+        const email = formData.get("email");
+        const assunto = formData.get("assunto");
+
+        const response = await fetch("/api/send-email", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(
+                {
+                    email: email,
+                    message: assunto
+                }
+            ),
+        });
+
+        if (!response.ok) {
+            const body = await response.json().catch(() => ({}));
+            throw new Error(body.error ?? "Erro ao enviar mensagem.");
+        }
+        event.currentTarget.reset();
+    }
 
     return (
         <>
@@ -161,44 +193,183 @@ export default function Hone() {
             </section>
 
 
-
             <section id="testimonials">
                 <header>
                     <span>
                         <p className="desktop-only">
-                            Conselho de quem conhece
+                            Avaliações renomadas
                         </p>
-                        <h2>Cada cliente importa!</h2>
+                        <h2>Qualidade garantida!</h2>
                     </span>
                     <p className="p-header-testimonials">
-                        Quem já pediu sabe da qualidade das nossas receitas, estamos tirando aquela ideia de que
-                        comida congelada tem de ser algo sem gosto, acompanhe abaixo os testemunhos de quem já comprou e aprovou.
+                        Se você possui duvidas sobre a qualidade dos nossos carros, veja o que os nossos clientes tem a dizer sobre eles!
                     </p>
                 </header>
 
                 <section className="carousel">
                     <div className="carousel-content">
 
-                        <Carrossel src={ProfileImageOne} src2={Star} src3={StarOut} p1="Comprei pelo site e gostei bastante! O carro é econômico, confortável e não precisei pedir dinheiro emprestado ao Seu Barriga para pagar. Agora só falta conseguir pagar as parcelas!" p2="Seu Madruga" p3="Empreendedor" />
+                        <Carrossel src={ProfileImageOne} star1={Star} star2={Star} star3={Star} star4={Star} star5={Star} p1="Comprei pelo site e gostei bastante! O carro é econômico, confortável e não precisei pedir dinheiro emprestado ao Seu Barriga para pagar. Agora só falta conseguir pagar as parcelas!" p2="Seu Madruga" p3="Empreendedor" />
 
-                        <Carrossel src={ProfileImageTwo} src2={Star} src3={StarOut} p1="Comprei minha Brasília pelo site e estou muito satisfeito! O carro chegou em ótimo estado. Só espero que o Seu Madruga não bata a porta nele quando vier cobrar o aluguel!" p2="Seu Barriga" p3="Sindico de condomínio" />
+                        <Carrossel src={ProfileImageTwo} star1={Star} star2={Star} star3={Star} star4={Star} star5={StarOut} p1="Comprei minha Brasília pelo site e estou muito satisfeito! O carro chegou em ótimo estado. Só espero que o Seu Madruga não bata a porta nele quando vier cobrar o aluguel!" p2="Seu Barriga" p3="Sindico de condomínio" />
 
-                        <Carrossel src={ProfileImageThree} src2={Star} src3={StarOut} p1="Uma excelente experiência de compra! O veículo chegou em perfeitas condições. Dona Florinda certamente aprovaria minha escolha. Agora, só falta convidá-la para um passeio!" p2="Professor Girafales" p3="Professor" />
+                        <Carrossel src={ProfileImageThree} star1={Star} star2={Star} star3={Star} star4={Star} star5={Star} p1="Uma excelente experiência de compra! O veículo chegou em perfeitas condições. Dona Florinda certamente aprovaria minha escolha. Agora, só falta convidá-la para um passeio!" p2="Professor Girafales" p3="Professor" />
 
                     </div>
 
 
                     <div className="carousel-content">
 
-                        <Carrossel src={ProfileImageOne} src2={Star} src3={StarOut} p1="Comprei pelo site e gostei bastante! O carro é econômico, confortável e não precisei pedir dinheiro emprestado ao Seu Barriga para pagar. Agora só falta conseguir pagar as parcelas!" p2="Seu Madruga" p3="Empreendedor" />
+                        <Carrossel src={ProfileImageOne} star1={Star} star2={Star} star3={Star} star4={Star} star5={Star} p1="Comprei pelo site e gostei bastante! O carro é econômico, confortável e não precisei pedir dinheiro emprestado ao Seu Barriga para pagar. Agora só falta conseguir pagar as parcelas!" p2="Seu Madruga" p3="Empreendedor" />
 
-                        <Carrossel src={ProfileImageTwo} src2={Star} src3={StarOut} p1="Comprei minha Brasília pelo site e estou muito satisfeito! O carro chegou em ótimo estado. Só espero que o Seu Madruga não bata a porta nele quando vier cobrar o aluguel!" p2="Seu Barriga" p3="Sindico de condomínio" />
+                        <Carrossel src={ProfileImageTwo} star1={Star} star2={Star} star3={Star} star4={Star} star5={StarOut} p1="Comprei minha Brasília pelo site e estou muito satisfeito! O carro chegou em ótimo estado. Só espero que o Seu Madruga não bata a porta nele quando vier cobrar o aluguel!" p2="Seu Barriga" p3="Sindico de condomínio" />
 
-                        <Carrossel src={ProfileImageThree} src2={Star} src3={StarOut} p1="Uma excelente experiência de compra! O veículo chegou em perfeitas condições. Dona Florinda certamente aprovaria minha escolha. Agora, só falta convidá-la para um passeio!" p2="Professor Girafales" p3="Professor" />
+                        <Carrossel src={ProfileImageThree} star1={Star} star2={Star} star3={Star} star4={Star} star5={Star} p1="Uma excelente experiência de compra! O veículo chegou em perfeitas condições. Dona Florinda certamente aprovaria minha escolha. Agora, só falta convidá-la para um passeio!" p2="Professor Girafales" p3="Professor" />
 
                     </div>
                 </section>
             </section>
+
+            <section id="pricing" className="container">
+                <header>
+                    <p className="desktop-only">Planos e preços</p>
+                    <h2>Nossos planos</h2>
+                </header>
+                <section className="even-columns gap-1.5">
+                    <div className="pricing-card">
+                        <span className="plan">
+                            <h3>Básico</h3>
+                            <p>Iremos lhe informar sempre que houver novos carros disponíveis.</p>
+                        </span>
+                        <h2>Grátis</h2>
+                        <Button text="Verificar" secondary key="free" />
+                        <span className="hr" /><span className="features">
+                            <img src={Check} alt="ícone check" width={24} height={24} />
+                            <p>Envio de notificações</p>
+                        </span>
+                        <span className="features">
+                            <img src={Check} alt="ícone check" width={24} height={24} />
+                            <p>Opções pré selecionadas</p>
+                        </span>
+                    </div>
+
+                    <div className="pricing-card premium">
+                        <span className="bonus">
+                            <p>1º MÊS COM DESCONTO</p>
+                        </span>
+                        <span className="plan">
+                            <h3>Premium</h3>
+                            <p>Opções exclusivas, dentro dos nossos caralogos especiais!</p>
+                        </span>
+                        <span className="price">
+                            <h2>R$ 109,90</h2>
+                            <p>/mês</p>
+                        </span>
+                        <Button text="Verificar" key="premium" />
+                        <span className="hr" />
+                        <span className="features">
+                            <img src={Check} alt="ícone check" width={24} height={24} />
+                            <p>Catalogos exclusivos</p>
+                        </span>
+                        <span className="features">
+                            <img src={Check} alt="ícone check" width={24} height={24} />
+                            <p>Ampla variedade</p>
+                        </span>
+                        <span className="features">
+                            <img src={Check} alt="ícone check" width={24} height={24} />
+                            <p>Descontos exclusivos</p>
+                        </span>
+                    </div>
+
+                    <div className="pricing-card">
+                        <span className="plan">
+                            <h3>Intermediário</h3>
+                            <p>Você tem direito a uma prova das comidas DonaFrost.</p>
+                        </span>
+                        <h2>R$ 59,90</h2>
+                        <Button text="Verificar" secondary key="free" />
+                        <span className="hr" /><span className="features">
+                            <img src={Check} alt="ícone check" width={24} height={24} />
+                            <p>Envio de notificações</p>
+                        </span>
+                        <span className="features">
+                            <img src={Check} alt="ícone check" width={24} height={24} />
+                            <p>Descontos exclusivos</p>
+                        </span>
+                    </div>
+
+                </section>
+            </section>
+
+            <section className="container" id="form">
+                {<header>
+                    <span>
+                        <h2>Duvidas?</h2>
+                        <span className="desktop-only">
+                            <h2>
+                                Estamos disponíveis!
+                            </h2>
+                        </span>
+                    </span>
+                    <p>
+                        Caso houver alguma duvida, sugestão ou reclamação, entre em contato conosco através do formulário abaixo!
+                    </p>
+                </header>}
+
+                <form onSubmit={sendContactEmail}>
+
+                    <div className="div_campo">
+                        <input type="email" name="email" id="tarefa" placeholder="Email" className="input" />
+                    </div>
+                    <div className="div_campo">
+                        <input type="text" name="assunto" id="prazo" placeholder="Assunto" className="input" />
+                    </div>
+                    <button type="submit" className="btn btn-primary">
+                        Enviar Email
+                    </button>
+
+                </form>
+
+            </section>
+
+            <section id="footer">
+                <section id="Interno">
+                    <div className="div">
+                        <h3 id="h3">LogoMarca</h3>
+                        <img src={instagram} alt="ícone instagram" width={24} height={24} />
+                        <img src={facebook} alt="ícone facebook" width={24} height={24} />
+                        <img src={youtube} alt="ícone youtube" width={24} height={24} />
+                    </div>
+                    <div className="div">
+                        <h3 id="h3">Empresa</h3>
+                        <p id="p">Sobre nós</p>
+                        <p id="p">Faça parte do time</p>
+                        <p id="p">Blog</p>
+                    </div>
+                    <div className="div">
+                        <h3 id="h3">Funcionalidades</h3>
+                        <p id="p">Marketing</p>
+                        <p id="p">Analise de dados</p>
+                        <p id="p">Boot Discord</p>
+                    </div>
+                    <div className="div">
+                        <h3 id="h3">Recursos</h3>
+                        <p id="p">IOS e Android</p>
+                        <p id="p">Teste a Demo</p>
+                        <p id="p">Clientes</p>
+                        <p id="p">API</p>
+                    </div>
+                </section>
+                
+            </section>
+            <section id="footer">
+                <p id="copyright">
+                    Fazido na aula de faze programa Web. Copyright © 2026 Irineu. Nenhum direito reservado.
+                </p>
+            </section>
+            
+
+
         </>
     )
 }

@@ -1,0 +1,83 @@
+#form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 4rem;
+  gap: 5.75rem;
+}
+
+#form header {
+  display: grid;
+  gap: 1.5rem;
+  text-align: center;
+  max-width: 33rem;
+}
+
+#form p {
+    color: var(--second-text-color);
+}
+
+#form strong {
+  color: var(--primary-color);
+  font-weight: var(--fw-bold);
+}
+
+#form .even-columns {
+    gap: 2rem;
+}
+
+.btn-primary {
+    width: 100%;
+    background: var(--primary-color);
+    color: var(--light-text-color);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-sm);
+    padding-block: 0.825rem;
+    padding-inline: 1.5rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    border: solid transparent 0.15rem;
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.div_campo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 1rem;
+}
+.input{
+    box-sizing: border-box;
+    width: 250%;
+    height: 60px;
+
+    padding: 0 18px;
+
+    border: 1px solid #cbd1da;
+    font-size: 120%;
+    color: #172238;
+}
+
+@media (width > 1280px) {
+    #form {
+        padding-block: 7.5rem;
+    }
+
+    #form header > span > h2 {
+        font-size: var(--fs-sm);
+        color: var(--primary-color);
+    }
+
+}
+
+@media (width <=650px) {
+
+    .input{
+        width: 180%;
+    }
+}
